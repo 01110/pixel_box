@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>PIXEL BOX</title>
+    <link rel="stylesheet" href="mvp.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <header>
+      <h1>PIXEL BOX</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Displayed image</h2>
+        <p>
+          <figure>
+            <canvas id="displayed_image" width="8" height="8" style="width: 240px; height: 240px; border-style: solid; border-width: 1px; image-rendering: pixelated; image-rendering: crisp-edges;"></canvas>
+          </figure>   
+        </p>             
+      </section>
+      <section>
+        <h2>Upload image</h2>
+        <p>
+          <form id="upload_form" method="post"  onsubmit="upload_img()">          
+            <input type="file" name="img_file" >
+            <input type="submit" id="submit" value="Upload">
+          </form>
+        </p>
+      </section>
+      <section>
+        <h2>Stored images</h2>
+        <p>
+          <table id="image_list">
+          </table>
+        </p>        
+      </section>
+      <section>
+        <h2>Settings</h2>
+        <p>
+          <form id="settings_form">
+            <label id="brightness_label" for="brightness_range">Brightness: %BRIGHTNESS%%%</label>
+            <input id="brightness_range" type="range" oninput="brightness_changed()" min="0" max="100" step="10" value="%BRIGHTNESS%"></input>
+            <label id="max_current_label" for="max_current_range">Max current: %MAX_CURRENT% mA</label>
+            <input id="max_current_range" type="range" oninput="max_current_changed()" min="0" max="3000" step="300" value="%MAX_CURRENT%"></input>
+          </form>
+        </p>
+      </section>
+      <section>
+        <header>
+          <h2>Storage & memory</h2>
+        </header>
+        <aside>
+            <h3>Storage size</h3>
+            <p id="total_size">%TOTAL_SIZE% KBytes</p>
+        </aside>
+        <aside>
+          <h3>Storage used</h3>
+          <p id="allocated_size">%ALLOCATED_SIZE% KBytes</p>
+        </aside>
+        <aside>
+          <h3>Free memory</h3>
+          <p id="free_heap">%FREE_HEAP% Bytes</p>
+        </aside>   
+      </section>
+    </main>
+    <footer>
+      <p>
+        <small>
+          2022, CPX
+        </small>
+      </p>
+    </footer>  
+    <script src="main.js"></script>
+  </body>
+</html>
